@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('phone_number');
-            $table->boolean('is_active');
-            $table->string('image_path');
+            $table->integer('phone_number')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->string('image_path')->nullable();
             $table->unsignedBigInteger('cart_id')->nullable();
             $table->unsignedBigInteger('favorite_id')->nullable();
             $table->rememberToken();

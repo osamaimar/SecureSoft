@@ -21,11 +21,11 @@ return new class extends Migration
             $table->string('password');
             $table->string('company_name');
             $table->string('address');
-            $table->integer('first_phone_number');
-            $table->integer('second_phone_number');
-            $table->boolean('is_active');
-            $table->string('image_path');
-            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->bigInteger('first_phone_number');
+            $table->bigInteger('second_phone_number')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->string('image_path')->nullable();
+            $table->foreignId('category_id')->nullable()->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('favorite_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
