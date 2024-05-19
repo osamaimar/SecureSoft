@@ -13,7 +13,7 @@ class PurchaseHistoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.purchase history.index');
     }
 
     /**

@@ -13,7 +13,7 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.region.add-region');
     }
 
     /**
@@ -29,7 +29,14 @@ class RegionController extends Controller
      */
     public function store(StoreRegionRequest $request)
     {
-        //
+        $request->rules();
+
+        $region = new Region();
+        $region->name = $request->name;
+
+        $region->save();
+
+        return back();
     }
 
     /**
@@ -45,7 +52,7 @@ class RegionController extends Controller
      */
     public function edit(Region $region)
     {
-        //
+        return view('Admin.region.edit-region', compact('region'));
     }
 
     /**
@@ -53,7 +60,10 @@ class RegionController extends Controller
      */
     public function update(UpdateRegionRequest $request, Region $region)
     {
-        //
+        $request->rules();
+        $region->name = $request->name;
+        $region->update();
+        return back();
     }
 
     /**
@@ -61,6 +71,7 @@ class RegionController extends Controller
      */
     public function destroy(Region $region)
     {
-        //
+        $region->delete();
+        return back();
     }
 }

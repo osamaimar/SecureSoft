@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Region;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 class Product extends Model
 {
@@ -18,28 +21,39 @@ class Product extends Model
     ];
     public function favorites()
     {
-        $this->belongsToMany(Favorite::class);
+        $product = Product::find(1);
+        $product->has($product->regions());
+        return $this->belongsToMany(Favorite::class,'product_favorite');
+    }
+    public function images()
+    {
+        return $this->hasMany(Product_image::class);
     }
     public function carts()
     {
-        $this->belongsToMany(Cart::class);
+        return $this->belongsToMany(Cart::class,'product_cart');
     }
     public function orders()
     {
-        $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class,'product_order');
     }
     public function devices(){
-        $this->belongsToMany(Device::class);
+        return $this->belongsToMany(Device::class,'product_device');
     }
-    public function regions(){
-        $this->belongsToMany(Region::class);
+    public function regions(): BelongsToMany
+    {
+        return $this->belongsToMany(Region::class);
     }
     public function collection()
     {
-        $this->belongsTo(Collection::class);
+        return $this->belongsTo(Collection::class);
+    }
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
     }
     public function keys()
     {
-        $this->hasMany(Product_key::class);
+        return $this->hasMany(Product_key::class);
     }
 }

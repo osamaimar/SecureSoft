@@ -20,7 +20,7 @@ class Admin extends Authenticatable
         'is_active',
     ];
     public function activities(){
-        $this->hasMany(Activity_log::class);
+        return $this->hasMany(Activity_log::class);
     }
     
 }

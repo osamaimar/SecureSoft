@@ -17,7 +17,15 @@ class SettingsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            // 'small_description' => fake()->shuffleString(),
+            // 'about_us' => fake()->shuffleString(),
+            'light_logo' => fake()->imageUrl(20,20),
+            'dark_logo' => fake()->imageUrl(20,20),
+            'light_icon' => fake()->imageUrl(20,20),
+            'dark_icon' => fake()->imageUrl(20,20),
+
+
         ];
     }
 }

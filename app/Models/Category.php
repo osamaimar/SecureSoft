@@ -14,6 +14,6 @@ class Category extends Model
         'description',
     ];
     public function merchants(){
-        $this->hasMany(Merchant::class);
+        return $this->hasMany(Merchant::class);
     }
 }

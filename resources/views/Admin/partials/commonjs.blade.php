@@ -27,3 +27,4 @@
 
 <!-- Color Picker JS -->
 <script src="{{asset('/assets')}}/libs/@simonwep/pickr/pickr.es5.min.js"></script>
+

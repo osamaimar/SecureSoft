@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     use HasFactory;
+    
     protected $fillable=[
         'name',
     ];
     public function products(){
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
 }

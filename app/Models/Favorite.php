@@ -10,14 +10,14 @@ class Favorite extends Model
     use HasFactory;
 
     public function user(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
     public function merchant(){
-        $this->belongsTo(Merchant::class);
+        return $this->belongsTo(Merchant::class);
     }
 
     public function products(){
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class,'product_favorite');
     }
 
 

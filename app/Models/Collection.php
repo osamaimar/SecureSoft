@@ -13,6 +13,6 @@ class Collection extends Model
         'image_path',
     ];
     public function products(){
-        $this->hasMany(Product::class);
+        return $this->hasMany(Product::class);
     }
 }

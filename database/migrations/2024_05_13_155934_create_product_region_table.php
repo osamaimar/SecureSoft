@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('product_region', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreignId('region_id')->references('id')->on('regions')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained();
+            $table->foreignId('region_id')->constrained();
             $table->timestamps();
 
         });

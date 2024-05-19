@@ -17,7 +17,8 @@ class CollectionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->monthName(),
+            'image_path' => fake()->imageUrl(20,20),
         ];
     }
 }

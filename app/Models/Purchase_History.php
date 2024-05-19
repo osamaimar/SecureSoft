@@ -11,6 +11,6 @@ class Purchase_History extends Model
     
 
     public function order(){
-        $this->belongsTo(Order::class);
+        return $this->belongsTo(Order::class);
     }
 }

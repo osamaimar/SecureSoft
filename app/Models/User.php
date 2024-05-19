@@ -55,14 +55,14 @@ class User extends Authenticatable
         $this->hasMany(Activity_log::class);
     }
     public function cart(){
-        $this->hasOne(Cart::class);
+        return $this->hasOne(Cart::class);
     }
 
     public function favorite(){
-        $this->hasOne(Favorite::class);
+        return $this->hasOne(Favorite::class);
     }
     public function orders(){
-        $this->hasMany(Order::class);
+        return $this->hasMany(Order::class);
     }
 
 }

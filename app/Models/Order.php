@@ -14,10 +14,16 @@ class Order extends Model
     ];
 
     public function purchases(){
-        $this->hasMany(Purchase_History::class);
+        return $this->hasMany(Purchase_History::class);
     }
 
     public function products(){
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class,'product_order');
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function merchant(){
+        return $this->belongsTo(Merchant::class);
     }
 }

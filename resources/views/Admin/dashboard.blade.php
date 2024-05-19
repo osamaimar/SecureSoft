@@ -1,7 +1,6 @@
-@extends('Admin/partials/master')
+@extends('Admin/partials/master',['title'=>'Dashboard'])
 @section('content')
-@include('Admin/partials/page-header', ['title' => 'Welcome back,  !', 'subtitle' => 'Track your sales activity, leads and deals here.', 'subtitle2' => 'Start Now'])
-
+@include('Admin/partials/page-header',['title'=> 'Welcome back '.Auth::guard('admin')->user()->first_name , 'subtitle'=>'Track your sales activity, leads and deals here.','subtitle2'=>'Filters'])
      <!-- Start::row-1 -->
      <div class="row">
                     <div class="col-xxl-9 col-xl-12">

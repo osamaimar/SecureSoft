@@ -17,7 +17,18 @@ class ContactFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'Facebook' => fake()->url(),
+            'Instagram' => fake()->url(),
+            'Snapchat' => fake()->url(),
+            'Twitter' => fake()->url(),
+            'LinkedIn' => fake()->url(),
+            'Youtube' => fake()->url(),
+            'Email' => fake()->email(),
+            'Phone' => fake()->phoneNumber(),
+            'Address' => fake()->address(),
+            'whatsapp' => fake()->address(),
+            'telegram' => fake()->address(),
+
         ];
     }
 }

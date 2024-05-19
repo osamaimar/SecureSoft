@@ -13,7 +13,7 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.device.add-device');
     }
 
     /**
@@ -29,7 +29,14 @@ class DeviceController extends Controller
      */
     public function store(StoreDeviceRequest $request)
     {
-        //
+        $request->rules();
+
+        $device = new Device();
+        $device->name = $request->name;
+
+        $device->save();
+
+        return back();
     }
 
     /**
@@ -45,7 +52,7 @@ class DeviceController extends Controller
      */
     public function edit(Device $device)
     {
-        //
+        return view('Admin.device.edit-device', compact('device'));
     }
 
     /**
@@ -53,7 +60,10 @@ class DeviceController extends Controller
      */
     public function update(UpdateDeviceRequest $request, Device $device)
     {
-        //
+        $request->rules();
+        $device->name = $request->name;
+        $device->update();
+        return back();
     }
 
     /**
@@ -61,6 +71,7 @@ class DeviceController extends Controller
      */
     public function destroy(Device $device)
     {
-        //
+        $device->delete();
+        return back();
     }
 }

@@ -1,8 +1,10 @@
-@include("Admin/partials/mainhead")
+@include('Admin/partials/mainhead', ['title' => $title])
 
 <link rel="stylesheet" href="{{asset('/assets')}}/libs/jsvectormap/css/jsvectormap.min.css">
 
 <link rel="stylesheet" href="{{asset('/assets')}}/libs/swiper/swiper-bundle.min.css">
+
+
 
 </head>
 
@@ -53,6 +55,7 @@
     <script src="{{asset('/assets')}}/js/custom.js"></script>
 
     @include("Admin/partials/custom_switcherjs")
+    @yield('scripts')
     
 </body>
 
