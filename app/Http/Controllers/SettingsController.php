@@ -13,7 +13,7 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.settings.index');
     }
 
     /**
@@ -29,7 +29,42 @@ class SettingsController extends Controller
      */
     public function store(StoreSettingsRequest $request)
     {
-        //
+        $request->rules();
+        $settings = Settings::first();
+
+        if($request->hasFile('light_logo')){
+            $light_logo = $request->file('light_logo');
+            $light_logo_name = $light_logo->getClientOriginalName();
+            $light_logo->storeAs('public/settings/', $light_logo_name);
+            $light_logo_path = '/storage/settings/'.$light_logo_name;
+            $settings->light_logo = $light_logo_path;
+        }
+        if($request->hasFile('dark_logo')){
+            $dark_logo = $request->file('dark_logo');
+            $dark_logo_name = $dark_logo->getClientOriginalName();
+            $dark_logo->storeAs('public/settings/', $dark_logo_name);
+            $dark_logo_path = '/storage/settings/'.$dark_logo_name;
+            $settings->dark_logo = $dark_logo_path;
+        }
+        if($request->hasFile('light_icon')){
+            $light_icon = $request->file('light_icon');
+            $light_icon_name = $light_icon->getClientOriginalName();
+            $light_icon->storeAs('public/settings/', $light_icon_name);
+            $light_icon_path = '/storage/settings/'.$light_icon_name;
+            $settings->light_icon = $light_icon_path;
+        }
+        if($request->hasFile('dark_icon')){
+            $dark_icon = $request->file('dark_icon');
+            $dark_icon_name = $dark_icon->getClientOriginalName();
+            $dark_icon->storeAs('public/settings/', $dark_icon_name);
+            $dark_icon_path = '/storage/settings/'.$dark_icon_name;
+            $settings->dark_icon = $dark_icon_path;
+        }
+
+        $settings->update();
+
+        return back();
+
     }
 
     /**
@@ -51,9 +86,8 @@ class SettingsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSettingsRequest $request, Settings $settings)
+    public function update(UpdateSettingsRequest $request)
     {
-        //
     }
 
     /**

@@ -91,7 +91,7 @@
                                     <div class="hstack gap-2 fs-15">
                                         <form method="GET">
                                             @csrf
-                                            <button type="submit" class="btn  btn-info-light">Download <i class="ri-edit-line"></i></button>
+                                            <button type="submit" class="btn btn-sm btn-success">Download</i></button>
                                         </form>
                                     </div>
                                 </td>

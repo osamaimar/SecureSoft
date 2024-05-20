@@ -11,7 +11,7 @@ class StoreSettingsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreSettingsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'light_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'dark_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'light_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'dark_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

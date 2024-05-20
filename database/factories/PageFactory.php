@@ -17,9 +17,8 @@ class PageFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->monthName(),
-            'slug' => fake()->monthName(),
             'title' => fake()->monthName(),
+            'slug' => fake()->monthName(),
             'content' => fake()->shuffleString(),
             'image_path' => fake()->imageUrl(20,20),
             'is_active' => fake()->boolean(),

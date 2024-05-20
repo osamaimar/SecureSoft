@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseHistoryController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SupplierController;
 use App\Models\Region;
 use Illuminate\Support\Facades\DB;
@@ -76,8 +78,19 @@ Route::middleware('auth:admin')->resource('regions',RegionController::class);
 Route::middleware('auth:admin')->resource('devices',DeviceController::class);
 
 
-##.............................................................................................Device Routes
+##.............................................................................................Purchase Routes
 Route::middleware('auth:admin')->resource('purchases',PurchaseHistoryController::class);
+
+
+
+##.............................................................................................Settings Routes
+Route::middleware('auth:admin')->resource('settings',SettingsController::class);
+
+
+
+##.............................................................................................Settings Routes
+Route::middleware('auth:admin')->resource('pages',PageController::class);
+
 
 
 

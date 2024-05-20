@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
+use Illuminate\Support\Str;
 use App\Models\Page;
 
 class PageController extends Controller
@@ -13,7 +14,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.page.pages-list');
+
     }
 
     /**
@@ -21,7 +23,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.page.add-page');
     }
 
     /**
@@ -29,7 +31,22 @@ class PageController extends Controller
      */
     public function store(StorePageRequest $request)
     {
-        //
+        $request->rules();
+
+        $page = new Page();
+        $page->title = $request->title;
+        $page->slug = Str::lower($request->title);
+        $page->content = $request->content;
+        if($request->hasFile('image_path')) {
+            $image_path = $request->file('image_path');
+            $image_path_name = time().$image_path->getClientOriginalName();
+            $image_path->move(public_path('images'), $image_path_name);
+            $page->image_path = $image_path_name;
+        }
+        $page->is_active = $request->status;
+        $page->save();
+
+        return back();
     }
 
     /**
@@ -45,7 +62,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        return view('Admin.page.edit-page', compact('page'));
     }
 
     /**
@@ -53,7 +70,20 @@ class PageController extends Controller
      */
     public function update(UpdatePageRequest $request, Page $page)
     {
-        //
+        $request->rules();
+        $page->title = $request->title;
+        $page->slug = Str::lower($request->title);
+        $page->content = $request->content;
+        if($request->hasFile('image_path')) {
+            $image_path = $request->file('image_path');
+            $image_path_name = time().$image_path->getClientOriginalName();
+            $image_path->move(public_path('images'), $image_path_name);
+            $page->image_path = $image_path_name;
+        }
+        $page->is_active = $request->status;
+        $page->update();
+
+        return back();
     }
 
     /**
@@ -61,6 +91,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return back();
     }
 }
