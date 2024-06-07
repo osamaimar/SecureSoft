@@ -51,17 +51,20 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function activities(){
+    public function activities()
+    {
         $this->hasMany(Activity_log::class);
     }
-    public function cart(){
-        return $this->hasOne(Cart::class);
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
     }
-
-    public function favorite(){
+    public function favorite()
+    {
         return $this->hasOne(Favorite::class);
     }
-    public function orders(){
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 

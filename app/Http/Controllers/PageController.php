@@ -9,6 +9,16 @@ use App\Models\Page;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:view pages')->only(['index']);
+        $this->middleware('checkPermission:create page')->only(['create','store']);
+        $this->middleware('checkPermission:edit page')->only(['edit','update']);
+        $this->middleware('checkPermission:delete page')->only(['destroy']);
+        // $this->middleware('checkPermission:change information user')->only(['index']);
+        // $this->middleware('checkPermission:search')->only(['search']);
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -1,14 +1,4 @@
 @extends('Admin/partials/master',['title'=>'Pages'])
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/quill/quill.snow.css">
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/quill/quill.bubble.css">
-
-<!-- Filepond CSS -->
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/filepond/filepond.min.css">
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.css">
-
-<!-- Date & Time Picker CSS -->
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/flatpickr/flatpickr.min.css">
 
 
 @section('content')
@@ -23,7 +13,7 @@
                     All Pages
                 </div>
                 <div class="d-flex">
-                    <form methode="get" action="{{route('pages.create')}}">
+                    <form methode="get" action="{{route('admin.pages.create')}}">
                     @csrf
                         <button type="submit" class="btn btn-sm btn-primary btn-wave waves-light" data-bs-toggle="modal" data-bs-target="#create-task"><i class="ri-add-line fw-semibold align-middle me-1"></i> New Page</button>
                     </form>
@@ -66,11 +56,11 @@
                                 
                                     <td class="hstack gap-2 fs-15">
 
-                                        <form method="GET" action="{{route('pages.edit',$page)}}">
+                                        <form method="GET" action="{{route('admin.pages.edit',$page)}}">
                                         @csrf
                                             <button type="submit" class="btn btn-primary-light btn-icon btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ri-edit-line"></i></button>
                                         </form>
-                                        <form method="POST" action="{{route('pages.destroy',$page)}}">
+                                        <form method="POST" action="{{route('admin.pages.destroy',$page)}}">
                                         @csrf
                                         @method('DELETE')
                                             <button type="submit" class="btn btn-danger-light btn-icon ms-1 btn-sm task-delete-btn"><i class="ri-delete-bin-5-line"></i></button>
@@ -90,32 +80,5 @@
 
 
 
-
-@endsection
-@section('scripts')
-
-<script src="{{asset('/assets')}}/libs/flatpickr/flatpickr.min.js"></script>
-
-<!-- Quill Editor JS -->
-<script src="{{asset('/assets')}}/libs/quill/quill.min.js"></script>
-
-<!-- Filepond JS -->
-<script src="{{asset('/assets')}}/libs/filepond/filepond.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-crop/filepond-plugin-image-crop.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-resize/filepond-plugin-image-resize.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-transform/filepond-plugin-image-transform.min.js"></script>
-
-<!-- Internal Add Products JS -->
-<script src="{{asset('/assets')}}/js/edit-products.js"></script>
-
-<!-- Custom JS -->
-<script src="{{asset('/assets')}}/js/custom.js"></script>
 
 @endsection

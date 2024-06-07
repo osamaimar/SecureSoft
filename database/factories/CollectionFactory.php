@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Top_Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,10 @@ class CollectionFactory extends Factory
         return [
             'name' => fake()->monthName(),
             'image_path' => fake()->imageUrl(20,20),
+            'category_id' => function () {
+                return Top_Category::factory()->create()->id;
+
+            },
         ];
     }
 }

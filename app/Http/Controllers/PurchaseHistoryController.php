@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePurchase_HistoryRequest;
 use App\Http\Requests\UpdatePurchase_HistoryRequest;
 use App\Models\Purchase_History;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PurchaseExport;
+
 
 class PurchaseHistoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:view purchases')->only(['index']);
+        $this->middleware('checkPermission:download purchas')->only(['export']);
+        // $this->middleware('checkPermission:change information user')->only(['index']);
+        // $this->middleware('checkPermission:search')->only(['search']);
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -62,5 +74,9 @@ class PurchaseHistoryController extends Controller
     public function destroy(Purchase_History $purchase_History)
     {
         //
+    }
+    public function export() 
+    {
+        return Excel::download(new PurchaseExport, 'purchases.xlsx');
     }
 }

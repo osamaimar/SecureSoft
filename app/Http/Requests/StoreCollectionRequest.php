@@ -24,6 +24,7 @@ class StoreCollectionRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'image_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:3072',
+            'collection' => 'required|string|max:255',
         ];
     }
 }

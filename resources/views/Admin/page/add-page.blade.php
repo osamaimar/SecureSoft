@@ -1,13 +1,5 @@
 @extends('Admin/partials/master',['title'=>'Add Page'])
 
-<!-- Filepond CSS -->
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/filepond/filepond.min.css">
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.css">
-
-<!-- Date & Time Picker CSS -->
-<link rel="stylesheet" href="{{asset('/assets')}}/libs/flatpickr/flatpickr.min.css">
-
 <!-- Include Quill CSS -->
 
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -19,7 +11,7 @@
 <div class="row">
     <div class="col-xl-12">
         <div class="card custom-card">
-            <form method="POST" action="{{route('pages.store')}}">
+            <form method="POST" action="{{route('admin.pages.store')}}">
                 @csrf
                 <div class="card-body">
                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
@@ -71,8 +63,6 @@
 @endsection
 @section('scripts')
 
-<script src="{{asset('/assets')}}/libs/flatpickr/flatpickr.min.js"></script>
-
 <!-- Quill Editor JS -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 <script>
@@ -90,23 +80,5 @@
         $("#hiddenArea").val($("#quillArea").html());
     })
 </script>
-<!-- Filepond JS -->
-<script src="{{asset('/assets')}}/libs/filepond/filepond.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-crop/filepond-plugin-image-crop.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-resize/filepond-plugin-image-resize.min.js"></script>
-<script src="{{asset('/assets')}}/libs/filepond-plugin-image-transform/filepond-plugin-image-transform.min.js"></script>
-
-<!-- Internal Add Products JS -->
-<script src="{{asset('/assets')}}/js/edit-products.js"></script>
-
-<!-- Custom JS -->
-<script src="{{asset('/assets')}}/js/custom.js"></script>
 
 @endsection

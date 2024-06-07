@@ -16,6 +16,17 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        if ($request->user() instanceof \App\Models\Admin) {
+            return view('admin.account.index', [
+               'merchant' => Auth::guard('admin')->user(),
+            ]);
+        }elseif($request->user() instanceof \App\Models\Merchant) {
+            return view('merchant.account.index', [
+                'user' => Auth::guard('merchant')->user(),
+            ]);
+
+        }
+
         return view('user.profile.edit', [
             'user' => $request->user(),
         ]);
@@ -34,7 +45,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return back()->with('status', 'profile-updated');
     }
 
     /**

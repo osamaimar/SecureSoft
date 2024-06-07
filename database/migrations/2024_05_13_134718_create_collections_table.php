@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image_path');
+            $table->foreignId('category_id')->references('id')->on('top__categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

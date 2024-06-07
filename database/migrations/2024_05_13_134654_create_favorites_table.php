@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('merchant_id')->nullable()->references('id')->on('merchants')->onDelete('cascade');
             $table->timestamps();
         });
     }

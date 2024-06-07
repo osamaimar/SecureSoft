@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('duration_time_unit');
             $table->integer('no_of_devices');
             $table->integer('cost');
-            $table->integer('base_price');
+            $table->integer('stock')->default(0);
+            $table->integer('min_partner_price');
             $table->integer('end_user_price');
             $table->string('warranty');
             $table->string('description');

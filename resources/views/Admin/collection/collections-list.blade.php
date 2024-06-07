@@ -23,7 +23,7 @@
 
 
                 <div class="card-header">
-                    <form method="get" action="{{route('collections.create')}}">
+                    <form method="get" action="{{route('admin.collections.create')}}">
                         @csrf
                         <button class="btn btn-success btn-wave waves-light" data-bs-toggle="modal" data-bs-target="#create-folder">
                             <i class="ri-add-circle-line align-middle me-2"></i>Add Collection
@@ -31,15 +31,15 @@
                     </form>
 
 
-                    <form method="get" action="{{route('collections.create')}}">
+                    <a href="javascript:void(0);" class="btn btn-primary btn-wave m-1" data-bs-toggle="modal" data-bs-target="#importModal">
+                        <i class="bi bi-file-earmark-plus me-2 align-middle d-inline-block"></i>Import
+                    </a>
+                    <form method="POST" action="{{route('admin.collections.export')}}">
                         @csrf
-                        <button type="button" class="btn btn-primary btn-wave">
-                            <i class="bi bi-file-earmark-plus me-2 align-middle d-inline-block"></i>Import
+                        <button type="submit" class="btn btn-outline-secondary btn-wave m-1">
+                            <i class="ri-upload-cloud-line me-2 align-middle d-inline-block"></i>Export
                         </button>
                     </form>
-                    <button type="button" class="btn btn-outline-secondary btn-wave">
-                        <i class="ri-upload-cloud-line me-2 align-middle d-inline-block"></i>Export
-                    </button>
                 </div>
 
 
@@ -55,6 +55,7 @@
                                 </th>
                                 <th scope="col">ID</th>
                                 <th scope="col" style="width: 80%;">Title</th>
+                                <th scope="col">Color</th>
                                 <th scope="col">Products</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -79,14 +80,15 @@
                                     </div>
                                 </td>
 
+                                <td>{{$collection->color}}</td>
                                 <td>{{$collection->products->count()}}</td>
                                 <td>
                                     <div class="hstack gap-2 fs-15">
-                                        <form method="GET" action="{{route('collections.edit',$collection)}}">
+                                        <form method="GET" action="{{route('admin.collections.edit',$collection)}}">
                                             @csrf
                                             <button type="submit" class="btn btn-icon btn-sm btn-info-light"><i class="ri-edit-line"></i></button>
                                         </form>
-                                        <form method="POST" action="{{route('collections.destroy',$collection)}}">
+                                        <form method="POST" action="{{route('admin.collections.destroy',$collection)}}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-icon btn-sm btn-danger-light "><i class="ri-delete-bin-line"></i></button>
@@ -153,15 +155,24 @@
         </div>
     </div>
 </div>
-@endsection
 
 
+<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="{{route('admin.collections.import')}}" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body p-4">
+                    <label class="form-label d-block fs-16">Import File</label>
+                    <input type="file" class="form-control" name="file">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-@section('scripts')
-<!-- Internal Product-Details JS -->
-<script src="{{asset('/assets')}}/js/product-list.js"></script>
-
-<!-- Custom JS -->
-<script src="{{asset('/assets')}}/js/custom.js"></script>
 
 @endsection

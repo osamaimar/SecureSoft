@@ -25,9 +25,10 @@ class ContactFactory extends Factory
             'Youtube' => fake()->url(),
             'Email' => fake()->email(),
             'Phone' => fake()->phoneNumber(),
-            'Address' => fake()->address(),
             'whatsapp' => fake()->address(),
             'telegram' => fake()->address(),
+            'address' => fake()->address(),
+            'legal_name' => fake()->name(),
 
         ];
     }

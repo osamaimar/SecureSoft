@@ -26,18 +26,27 @@ class Merchant extends Authenticatable
         // 'favorite_id',
 
     ];
-    public function activities(){
+    public function activities()
+    {
         return $this->hasMany(Activity_log::class);
     }
 
-    public function favorite(){
+    public function favorite()
+    {
         return $this->hasOne(Favorite::class);
     }
 
-    public function categories(){
+    public function categories()
+    {
         return $this->belongsTo(Category::class);
     }
-    public function orders(){
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+    
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 

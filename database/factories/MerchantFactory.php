@@ -25,11 +25,10 @@ class MerchantFactory extends Factory
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'username' => fake()->userName(),
-            'first_phone_number' => fake()->randomFloat(),
-            'second_phone_number' => fake()->randomFloat(),
+            'first_phone_number' => fake()->phoneNumber(),
+            'second_phone_number' => fake()->phoneNumber(),
             'company_name' => fake()->monthName(),
             'address' => fake()->address(),
-            
             'is_active' => fake()->boolean(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),

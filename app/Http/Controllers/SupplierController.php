@@ -8,6 +8,16 @@ use App\Models\Supplier;
 
 class SupplierController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:view suppliers')->only(['index']);
+        $this->middleware('checkPermission:create supplier')->only(['create','store']);
+        $this->middleware('checkPermission:edit supplier')->only(['edit','update']);
+        $this->middleware('checkPermission:delete supplier')->only(['destroy']);
+        // $this->middleware('checkPermission:change information user')->only(['index']);
+        // $this->middleware('checkPermission:search')->only(['search']);
+    }
+
     /**
      * Display a listing of the resource.
      */

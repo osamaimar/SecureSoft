@@ -54,7 +54,7 @@
                                 <label class="form-check-label" for="switcher-rtl">
                                     RTL
                                 </label>
-                                <input class="form-check-input" type="radio" name="direction" id="switcher-rtl">
+                                <input class="form-check-input" type="radio" name="direction" id="switcher-rtl" >
                             </div>
                         </div>
                     </div>

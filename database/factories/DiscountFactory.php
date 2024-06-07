@@ -17,10 +17,8 @@ class DiscountFactory extends Factory
     public function definition(): array
     {
         return [
-            'code' => fake()->countryCode(),
-            'discount_amount' => fake()->randomFloat(2, 10, 100),
-            'discount_percentage' => fake()->randomFloat(2, 10, 100),
-            'expiration_date' => fake()->date(),
+            'code' => $this->faker->word,
+            'percentage' => $this->faker->numberBetween(1, 100),
         ];
     }
 }

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('phone_number')->nullable();
             $table->boolean('is_active')->default(true);
             $table->string('image_path')->nullable();
-            $table->unsignedBigInteger('cart_id')->nullable();
+            $table->foreignId('cart_id')->nullable()->references('id')->on('carts')->onDelete('cascade');
             $table->unsignedBigInteger('favorite_id')->nullable();
             $table->rememberToken();
             $table->timestamps();

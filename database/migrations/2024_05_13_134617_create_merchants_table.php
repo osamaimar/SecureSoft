@@ -21,12 +21,13 @@ return new class extends Migration
             $table->string('password');
             $table->string('company_name');
             $table->string('address');
-            $table->bigInteger('first_phone_number');
-            $table->bigInteger('second_phone_number')->nullable();
+            $table->string('first_phone_number', 255);
+            $table->string('second_phone_number', 255)->nullable();
             $table->boolean('is_active')->default(true);
             $table->string('image_path')->nullable();
             $table->foreignId('category_id')->nullable()->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('favorite_id')->nullable();
+            $table->foreignId('cart_id')->nullable()->constrained()->onDelete('set null'); // Add this line
             $table->rememberToken();
             $table->timestamps();
         });

@@ -6,9 +6,25 @@ use App\Http\Requests\StoreCollectionRequest;
 use App\Http\Requests\UpdateCollectionRequest;
 use App\Models\Collection;
 use App\Models\Product;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\CollectionImport;
+use App\Exports\CollectionExport;
 
 class CollectionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:view collections')->only(['index']);
+        $this->middleware('checkPermission:create collection')->only(['create','store']);
+        $this->middleware('checkPermission:edit collection')->only(['edit','update']);
+        $this->middleware('checkPermission:delete collection')->only(['destroy']);
+        $this->middleware('checkPermission:export collections')->only(['export']);
+        $this->middleware('checkPermission:import collections')->only(['import']);
+        // $this->middleware('checkPermission:change information user')->only(['index']);
+        // $this->middleware('checkPermission:search')->only(['search']);
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -34,6 +50,7 @@ class CollectionController extends Controller
 
         $collection = new Collection();
         $collection->name = $request->name;
+        $collection->color = $request->color;
 
         $path = $request->file('image_path')->store('Colection Images', 'public');
         $collection->image_path = $path;
@@ -66,6 +83,7 @@ class CollectionController extends Controller
         $request->rules();
 
         $collection->name = $request->name;
+        $collection->color = $request->color;
         if ($request->hasFile('image_path')) {
             $path = $request->file('image_path')->store('Colection Images', 'public');
             $collection->image_path = $path;
@@ -73,10 +91,10 @@ class CollectionController extends Controller
         $collection->products()->update(['collection_id' => null]);
 
         $products = request()->products;
-       
+
         foreach ($products as $id) {
             $product = Product::find($id);
-            
+
             // $collection->products()->attach([
             //     $product
             // ]);            // $product->collection()->attach([$collection->id]);
@@ -97,5 +115,15 @@ class CollectionController extends Controller
     {
         $collection->delete();
         return back();
+    }
+    public function export()
+    {
+        return Excel::download(new CollectionExport, 'collections.xlsx');
+    }
+    public function import()
+    {
+        Excel::import(new CollectionImport, request()->file('file'));
+
+        return back()->with('success', 'All good!');
     }
 }

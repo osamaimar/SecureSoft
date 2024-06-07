@@ -1,16 +1,5 @@
 <?php
-
-use App\Http\Controllers\CollectionController;
-use App\Http\Controllers\DeviceController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PurchaseHistoryController;
-use App\Http\Controllers\RegionController;
-use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\SupplierController;
-use App\Models\Region;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,46 +42,9 @@ Route::middleware('auth:merchant')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::middleware('auth:admin')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-
-##.............................................................................................Products Routes
-Route::middleware('auth:admin')->resource('products',ProductController::class);
-
-##.............................................................................................Collections Routes
-Route::middleware('auth:admin')->resource('collections',CollectionController::class);
-
-
-##.............................................................................................Suppliers Routes
-Route::middleware('auth:admin')->resource('suppliers',SupplierController::class);
-
-##.............................................................................................Regions Routes
-Route::middleware('auth:admin')->resource('regions',RegionController::class);
-
-
-##.............................................................................................Device Routes
-Route::middleware('auth:admin')->resource('devices',DeviceController::class);
-
-
-##.............................................................................................Purchase Routes
-Route::middleware('auth:admin')->resource('purchases',PurchaseHistoryController::class);
-
-
-
-##.............................................................................................Settings Routes
-Route::middleware('auth:admin')->resource('settings',SettingsController::class);
-
-
-
-##.............................................................................................Settings Routes
-Route::middleware('auth:admin')->resource('pages',PageController::class);
-
-
 
 
 
 require __DIR__.'/auth.php';
+require __DIR__.'/merchant.php';
+require __DIR__.'/admin.php';

@@ -31,7 +31,7 @@
                 <li class="slide has-sub">
                     <a href="{{route('admin.dashboard')}}" class="side-menu__item">
                         <i class="bx bx-home side-menu__icon"></i>
-                        <span class="side-menu__label">Dashboard<span class="badge bg-warning-transparent ms-2">12</span></span>
+                        <span class="side-menu__label">Dashboard</span>
                     </a>
                     <ul class="slide-menu child1">
                         <li class="slide side-menu__label1">
@@ -60,61 +60,25 @@
                             <a href="javascript:void(0)">Products</a>
                         </li>
                         <li class="slide">
-                            <a href="{{route('products.index')}}" class="side-menu__item">Products list</a>
+                            <a href="{{route('admin.products.index')}}" class="side-menu__item">Products list</a>
                         </li>
                         <li class="slide">
-                            <a href="{{route('collections.index')}}" class="side-menu__item">Collections</a>
+                            <a href="{{route('admin.collections.index')}}" class="side-menu__item">Collections</a>
                         </li>
                         <li class="slide">
-                            <a href="{{route('suppliers.index')}}" class="side-menu__item">Suppliers</a>
+                            <a href="{{route('admin.suppliers.index')}}" class="side-menu__item">Suppliers</a>
                         </li>
                         <li class="slide">
-                            <a href="{{route('regions.index')}}" class="side-menu__item">Regions</a>
+                            <a href="{{route('admin.regions.index')}}" class="side-menu__item">Regions</a>
                         </li>
                         <li class="slide">
-                            <a href="{{route('devices.index')}}" class="side-menu__item">Devices</a>
+                            <a href="{{route('admin.devices.index')}}" class="side-menu__item">Devices</a>
                         </li>
                         <li class="slide">
-                            <a href="{{route('purchases.index')}}" class="side-menu__item">Purchase History</a>
+                            <a href="{{route('admin.purchases.index')}}" class="side-menu__item">Purchase History</a>
                         </li>
                         <li class="slide">
-                            <a href="dropdowns.html" class="side-menu__item">Dropdowns</a>
-                        </li>
-                        <li class="slide">
-                            <a href="images_figures.html" class="side-menu__item">Images &amp; Figures</a>
-                        </li>
-                        <li class="slide">
-                            <a href="links_interactions.html" class="side-menu__item">Links &amp; Interactions</a>
-                        </li>
-                        <li class="slide">
-                            <a href="listgroup.html" class="side-menu__item">List Group</a>
-                        </li>
-                        <li class="slide">
-                            <a href="navs_tabs.html" class="side-menu__item">Navs &amp; Tabs</a>
-                        </li>
-                        <li class="slide">
-                            <a href="object-fit.html" class="side-menu__item">Object Fit</a>
-                        </li>
-                        <li class="slide">
-                            <a href="pagination.html" class="side-menu__item">Pagination</a>
-                        </li>
-                        <li class="slide">
-                            <a href="popovers.html" class="side-menu__item">Popovers</a>
-                        </li>
-                        <li class="slide">
-                            <a href="progress.html" class="side-menu__item">Progress</a>
-                        </li>
-                        <li class="slide">
-                            <a href="spinners.html" class="side-menu__item">Spinners</a>
-                        </li>
-                        <li class="slide">
-                            <a href="toasts.html" class="side-menu__item">Toasts</a>
-                        </li>
-                        <li class="slide">
-                            <a href="tooltips.html" class="side-menu__item">Tooltips</a>
-                        </li>
-                        <li class="slide">
-                            <a href="typography.html" class="side-menu__item">Typography</a>
+                            <a href="{{route('admin.licenses.index')}}" class="side-menu__item">Licenses</a>
                         </li>
                     </ul>
                 </li>
@@ -124,156 +88,53 @@
                 <li class="slide has-sub">
                     <a href="javascript:void(0);" class="side-menu__item">
                         <i class="bx bx-medal side-menu__icon"></i>
-                        <span class="side-menu__label">Utilities</span>
+                        <span class="side-menu__label">Orders</span>
                         <i class="fe fe-chevron-right side-menu__angle"></i>
                     </a>
                     <ul class="slide-menu child1">
                         <li class="slide side-menu__label1">
-                            <a href="javascript:void(0)">Utilities</a>
+                            <a href="javascript:void(0)">Orders</a>
                         </li>
                         <li class="slide">
-                            <a href="avatars.html" class="side-menu__item">Avatars</a>
+                            <a href="avatars.html" class="side-menu__item">Orders</a>
                         </li>
                         <li class="slide">
-                            <a href="borders.html" class="side-menu__item">Borders</a>
-                        </li>
-                        <li class="slide">
-                            <a href="breakpoints.html" class="side-menu__item">Breakpoints</a>
-                        </li>
-                        <li class="slide">
-                            <a href="colors.html" class="side-menu__item">Colors</a>
-                        </li>
-                        <li class="slide">
-                            <a href="columns.html" class="side-menu__item">Columns</a>
-                        </li>
-                        <li class="slide">
-                            <a href="flex.html" class="side-menu__item">Flex</a>
-                        </li>
-                        <li class="slide">
-                            <a href="gutters.html" class="side-menu__item">Gutters</a>
-                        </li>
-                        <li class="slide">
-                            <a href="helpers.html" class="side-menu__item">Helpers</a>
-                        </li>
-                        <li class="slide">
-                            <a href="position.html" class="side-menu__item">Position</a>
-                        </li>
-                        <li class="slide">
-                            <a href="more.html" class="side-menu__item">Additional Content</a>
+                            <a href="{{route('admin.invoices.index')}}" class="side-menu__item">Invoices</a>
                         </li>
                     </ul>
                 </li>
                 <!-- End::slide -->
 
-                <!-- Start::slide -->
-                <li class="slide has-sub">
-                    <a href="javascript:void(0);" class="side-menu__item">
-                        <i class="bx bx-file side-menu__icon"></i>
-                        <span class="side-menu__label">Forms</span>
-                        <i class="fe fe-chevron-right side-menu__angle"></i>
-                    </a>
-                    <ul class="slide-menu child1">
-                        <li class="slide side-menu__label1">
-                            <a href="javascript:void(0)">Forms</a>
-                        </li>
-                        <li class="slide has-sub">
-                            <a href="javascript:void(0);" class="side-menu__item">Form Elements
-                                <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                            <ul class="slide-menu child2">
-                                <li class="slide">
-                                    <a href="form_inputs.html" class="side-menu__item">Inputs</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_check_radios.html" class="side-menu__item">Checks &amp; Radios</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_input_group.html" class="side-menu__item">Input Group</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_select.html" class="side-menu__item">Form Select</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_range.html" class="side-menu__item">Range Slider</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_input_masks.html" class="side-menu__item">Input Masks</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_file_uploads.html" class="side-menu__item">File Uploads</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_dateTime_pickers.html" class="side-menu__item">Date,Time Picker</a>
-                                </li>
-                                <li class="slide">
-                                    <a href="form_color_pickers.html" class="side-menu__item">Color Pickers</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="slide">
-                            <a href="floating_labels.html" class="side-menu__item">Floating Labels</a>
-                        </li>
-                        <li class="slide">
-                            <a href="form_layout.html" class="side-menu__item">Form Layouts</a>
-                        </li>
-                        <li class="slide has-sub">
-                            <a href="javascript:void(0);" class="side-menu__item">Form Editors
-                                <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                            <ul class="slide-menu child2">
-                                <li class="slide">
-                                    <a href="quill_editor.html" class="side-menu__item">Quill Editor</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="slide">
-                            <a href="form_validation.html" class="side-menu__item">Validation</a>
-                        </li>
-                        <li class="slide">
-                            <a href="form_select2.html" class="side-menu__item">Select2</a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End::slide -->
+
 
                 <!-- Start::slide -->
                 <li class="slide has-sub">
                     <a href="javascript:void(0);" class="side-menu__item">
-                        <i class="bx bx-party side-menu__icon"></i>
-                        <span class="side-menu__label">Advanced Ui</span>
+                        <i class="bx bx-medal side-menu__icon"></i>
+                        <span class="side-menu__label">Users & Admins</span>
                         <i class="fe fe-chevron-right side-menu__angle"></i>
                     </a>
                     <ul class="slide-menu child1">
                         <li class="slide side-menu__label1">
-                            <a href="javascript:void(0)">Advanced Ui</a>
+                            <a href="javascript:void(0)">Users & Admins</a>
                         </li>
                         <li class="slide">
-                            <a href="accordions_collpase.html" class="side-menu__item">Accordions &amp; Collapse</a>
+                            <a href="{{route('admin.users.index')}}" class="side-menu__item">Users</a>
                         </li>
                         <li class="slide">
-                            <a href="carousel.html" class="side-menu__item">Carousel</a>
+                            <a href="{{route('admin.merchants.index')}}" class="side-menu__item">Merchants</a>
                         </li>
-                        <li class="slide">
-                            <a href="draggable-cards.html" class="side-menu__item">Draggable Cards</a>
-                        </li>
-                        <li class="slide">
-                            <a href="modals_closes.html" class="side-menu__item">Modals &amp; Closes</a>
-                        </li>
-                        <li class="slide">
-                            <a href="navbar.html" class="side-menu__item">Navbar</a>
-                        </li>
-                        <li class="slide">
-                            <a href="offcanvas.html" class="side-menu__item">Offcanvas</a>
-                        </li>
-                        <li class="slide">
-                            <a href="placeholders.html" class="side-menu__item">Placeholders</a>
-                        </li>
-                        <li class="slide">
-                            <a href="ratings.html" class="side-menu__item">Ratings</a>
-                        </li>
-                        <li class="slide">
-                            <a href="scrollspy.html" class="side-menu__item">Scrollspy</a>
-                        </li>
-                        <li class="slide">
-                            <a href="swiperjs.html" class="side-menu__item">Swiper JS</a>
+                        <li class="slide has-sub">
+                            <a href="javascript:void(0);" class="side-menu__item">Admins
+                                <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                            <ul class="slide-menu child2">
+                                <li class="slide">
+                                    <a href="{{route('admin.admins.index')}}" class="side-menu__item">Admins</a>
+                                </li>
+                                <li class="slide">
+                                    <a href="{{route('admin.roles.index')}}" class="side-menu__item">Roles & Permissions</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -282,7 +143,7 @@
 
                  <!-- Start::slide -->
                  <li class="slide">
-                    <a href="{{route('pages.index')}}" class="side-menu__item">
+                    <a href="{{route('admin.pages.index')}}" class="side-menu__item">
                         <i class="la la-edit side-menu__icon"></i>
                         <span class="side-menu__label">Pages</span>
                     </a>
@@ -292,9 +153,9 @@
 
                 <!-- Start::slide -->
                 <li class="slide">
-                    <a href="{{route('settings.index')}}" class="side-menu__item">
+                    <a href="{{route('admin.settings.index')}}" class="side-menu__item">
                         <i class="bx bx-cog side-menu__icon"></i>
-                        <span class="side-menu__label">Sittings</span>
+                        <span class="side-menu__label">Settings</span>
                     </a>
                 </li>
                 <!-- End::slide -->

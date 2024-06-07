@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('merchant_id')->nullable()->references('id')->on('merchants')->onDelete('cascade');
-            $table->integer('total_amount');
-            $table->string('status');
+            $table->decimal('total_amount', 10, 2);
+            $table->decimal('subtotal', 10, 2);
+            $table->integer('number_of_products')->default(0);
+            $table->enum('status', ['Unpaid', 'Pending', 'Paid','Completed' ,'Overdue']);
             
 
             $table->timestamps();

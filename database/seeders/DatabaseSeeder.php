@@ -12,9 +12,12 @@ use App\Models\Contact;
 use App\Models\Device;
 use App\Models\Discount;
 use App\Models\Favorite;
+use App\Models\Invoice;
+use App\Models\License;
 use App\Models\Merchant;
 use App\Models\Order;
 use App\Models\Page;
+use App\Models\Permission_Category;
 use App\Models\Product;
 use App\Models\Product_image;
 use App\Models\Product_key;
@@ -24,6 +27,7 @@ use App\Models\Settings;
 use App\Models\Slider;
 use App\Models\Supplier;
 use App\Models\User;
+use Database\Factories\PermissionCategoryFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,6 +38,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
+
 
         $products = Product::factory()
             ->has(Region::factory()->count(3))
@@ -53,14 +58,16 @@ class DatabaseSeeder extends Seeder
         // $orders = Order::factory(5)->create();
         // $carts = Cart::factory(6)->create();
         // $favorites = Favorite::factory(7)->create();
-        $keys = Product_key::factory(20)->create();
+        $keys = License::factory(20)->create();
         $images = Product_image::factory(10)->create();
+       
         // $histories = Purchase_History::factory(10)->create();
         // $merchants = Merchant::factory(10)->create();
         // $users = User::factory(10)->create();
         // $admins = Admin::factory(10)->create();
         // $logs = Activity_log::factory(10)->create();
         $discounts = Discount::factory(10)->create();
+        $invoices = Invoice::factory(10)->create();
         $settings = Settings::factory(10)->create();
         $contact = Contact::factory(10)->create();
         $pages = Page::factory(10)->create();
@@ -68,9 +75,5 @@ class DatabaseSeeder extends Seeder
 
 
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

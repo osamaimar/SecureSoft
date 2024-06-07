@@ -31,7 +31,7 @@ class StoreProductRequest extends FormRequest
             'devices.*' => 'exists:devices,id',
             'cost' => 'required|numeric',
             'description' => 'required|string|max:600',
-            'base_price' => 'required|numeric',
+            'min_partner_price' => 'required|numeric',
             'end_user_price' => 'required|numeric',
             'no_of_devices' => 'required|numeric',
             'duration_value' => 'required|numeric',

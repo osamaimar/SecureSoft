@@ -22,8 +22,9 @@ return new class extends Migration
             $table->string('youtube');
             $table->string('whatsapp');
             $table->string('telegram');
-            $table->string('address');
             $table->string('phone');
+            $table->string('address');
+            $table->string('legal_name');
             $table->timestamps();
         });
     }

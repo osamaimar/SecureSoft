@@ -24,7 +24,7 @@ class AdminFactory extends Factory
         return [
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
-            'phone_number' => fake()->randomFloat(),
+            'phone_number' => fake()->phoneNumber(),
             'is_active' => fake()->boolean(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),

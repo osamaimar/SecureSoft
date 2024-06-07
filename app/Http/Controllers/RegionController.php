@@ -8,6 +8,16 @@ use App\Models\Region;
 
 class RegionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:view regions')->only(['index']);
+        $this->middleware('checkPermission:create region')->only(['create','store']);
+        $this->middleware('checkPermission:edit region')->only(['edit','update']);
+        $this->middleware('checkPermission:delete region')->only(['destroy']);
+        // $this->middleware('checkPermission:change information user')->only(['index']);
+        // $this->middleware('checkPermission:search')->only(['search']);
+    }
+
     /**
      * Display a listing of the resource.
      */

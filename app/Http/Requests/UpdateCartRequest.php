@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\StockAvailabilityForCart;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCartRequest extends FormRequest
@@ -11,7 +12,7 @@ class UpdateCartRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,13 @@ class UpdateCartRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            
+            'cart' => [new StockAvailabilityForCart()],
+        ];
+    }
+    public function messages(){
+        return [
+            'cart.stock_availability_for_cart' => 'The quantity in the cart exceeds the available stock for one or more products.'
         ];
     }
 }
